@@ -12,12 +12,21 @@ import {
   SET_ACCESS_TOKEN,
   SET_MY_INFO,
   DESTROY_ACCESS_TOKEN,
-  DESTROY_MY_INFO
+  DESTROY_MY_INFO,
+  FETCH_TABLE_DATA,
+  CRAWL_LISTS
 } from './mutation-types'
 
 import axios from 'axios'
 
 export default {
+  fetchCrawlList ({ commit }) {
+    return axios.get('http://localhost:7777/article')
+      .then(res => {
+        console.log('fetchCrawlList - res: ' + res.data)
+        commit(CRAWL_LISTS, res.data)
+      })
+  },
   fetchBoardList ({ commit }) {
     console.log('fetchBoardList: ' + commit)
     return axios.get('http://localhost:7777/boards')
@@ -104,5 +113,8 @@ export default {
   logout ({ commit }) {
     commit(DESTROY_MY_INFO)
     commit(DESTROY_ACCESS_TOKEN)
+  },
+  fetchTableData ({ commit }, tableData) {
+    commit(FETCH_TABLE_DATA, tableData)
   }
 }

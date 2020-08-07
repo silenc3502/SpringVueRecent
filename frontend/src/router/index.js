@@ -13,6 +13,12 @@ import LoginHeader from '../components/LoginHeader.vue'
 
 import AdminSetupPage from '../views/AdminSetupPage.vue'
 
+import VuetifyBoardListPage from '../views/VuetifyBoardListPage.vue'
+import VuetifyTest from '../views/VuetifyTest.vue'
+import GameStart from '../views/GameStart.vue'
+import TicTacToe from '../views/TicTacToe.vue'
+import CrawlCategory from '../views/CrawlCategory.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -85,6 +91,41 @@ const routes = [
     name: 'AdminSetupPage',
     components: {
       default: AdminSetupPage
+    }
+  },
+  {
+    path: '/VuetifyBoardListPage',
+    name: 'VuetifyBoardListPage',
+    components: {
+      default: VuetifyBoardListPage
+    }
+  },
+  {
+    path: '/VuetifyTest',
+    name: 'VuetifyTest',
+    components: {
+      default: VuetifyTest
+    }
+  },
+  {
+    path: '/GameStart',
+    name: 'GameStart',
+    components: {
+      default: GameStart
+    }
+  },
+  {
+    path: '/TicTacToe',
+    name: 'TicTacToe',
+    components: {
+      default: TicTacToe
+    }
+  },
+  {
+    path: '/CrawlCategory',
+    name: 'CrawlCategory',
+    components: {
+      default: CrawlCategory
     }
   }
 ]

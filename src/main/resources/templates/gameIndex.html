@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var game;
+    </script>
+</head>
+<body>
+    <canvas id="board" width = "600" height = "600"/>
+    <script>
+        var spritesArray;
+        var self = this;
+
+        self.init = function() {
+            self.spritesArray = new Array();
+            for (var i = 0; i<3; i++) {
+                var tempArray = new Array();
+                for (var j = 0; j<3; j++) {
+                    tempArray.push("");
+                }
+                self.spritesArray.push(tempArray);
+            }
+            self.isXsTurn = true;
+            self.canvas = document.getElementById("board");
+            self.canvas.addEventListener("click", self.handleMouseClick, false);
+
+            self.context = self.canvas.getContext("2d");
+            self.drawGameBoard();
+            self.drawXSprite(200, 200);
+            self.drawOSprite(400, 400);
+            self.drawXSprite(400, 200);
+            self.drawOSprite(0, 200);
+            self.drawXSprite(200, 0);
+            self.drawOSprite(200, 400);
+            self.drawXSprite(0, 400);
+            self.drawOSprite(400, 0);
+            self.drawXSprite(0, 0);
+        }
+
+        self.drawXSprite = function (x, y) {
+            var ctx = self.context;
+
+            // Save the canvas state and translate
+            ctx.save();
+            ctx.translate(x,y);
+
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+
+            ctx.moveTo(10,10);
+            ctx.lineTo(190,190);
+            ctx.moveTo(190,10);
+            ctx.lineTo(10,190);
+            ctx.stroke();
+
+            // Restore canvas state
+            ctx.restore();
+        }
+
+        self.drawOSprite = function(x, y) {
+            var ctx = self.context;
+
+            // Save the canvas state and translate
+            ctx.save();
+            ctx.translate(x,y);
+
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+
+            ctx.arc(100,100, 90, 0, 2*Math.PI);
+            ctx.stroke();
+
+            // Restore canvas state
+            ctx.restore();
+        }
+
+        self.drawGameBoard = function() {
+            var ctx = self.context;
+
+            ctx.beginPath();
+            ctx.moveTo(200,0);
+            ctx.lineTo(200,600);
+
+            ctx.moveTo(400,0);
+            ctx.lineTo(400,600);
+
+            ctx.moveTo(0,200);
+            ctx.lineTo(600,200);
+
+            ctx.moveTo(0,400);
+            ctx.lineTo(600,400);
+
+            ctx.stroke();
+        }
+
+        self.handleMouseClick = function(evt) {
+            x = evt.clientX - self.canvas.offsetLeft;
+            y = evt.clientY - self.canvas.offsetTop;
+
+            console.log("x,y:"+x+","+y);
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>

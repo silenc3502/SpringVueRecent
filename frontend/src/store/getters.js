@@ -27,5 +27,8 @@ export default {
   },
   isMember (state, getters) {
     return getters.isAuthorized && state.myinfo.authList[0].auth === 'ROLE_MEMBER'
+  },
+  getTableData (state) {
+    return state.tableData
   }
 }

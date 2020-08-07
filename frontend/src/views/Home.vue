@@ -17,6 +17,19 @@
       <router-link :to="{ name: 'BoardListPage' }" class="nav-link" active-class="active">
         Board
       </router-link>
+      <router-link :to="{ name: 'VuetifyBoardListPage' }" class="nav-link" active-class="active">
+        VuetifyBoardPage
+      </router-link>
+      <router-link :to="{ name: 'VuetifyTest' }" class="nav-link" active-class="active">
+        VuetifyTest
+      </router-link>
+      <a v-bind:href="gameLink">GameStart</a>
+      <router-link :to="{ name: 'TicTacToe' }" class="nav-link" active-class="active">
+        TicTacToe
+      </router-link>
+      <router-link :to="{ name: 'CrawlCategory' }" class="nav-link" active-class="active">
+        CrawlCategory
+      </router-link>
       <div>
         <br><span>{{ myinfo.auth }}계정, 접속을 환영합니다.</span>
       </div>
@@ -59,6 +72,7 @@ import { mapState, mapGetters, mapActions } from 'vuex'
 export default {
   data: function () {
     return {
+      gameLink: 'http://localhost:7777/gameIndex',
       message: 'test'
     }
   },

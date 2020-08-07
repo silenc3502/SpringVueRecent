@@ -15,7 +15,9 @@ import {
   SET_ACCESS_TOKEN,
   SET_MY_INFO,
   DESTROY_ACCESS_TOKEN,
-  DESTROY_MY_INFO
+  DESTROY_MY_INFO,
+  FETCH_TABLE_DATA,
+  CRAWL_LISTS
 } from './mutation-types'
 
 import axios from 'axios'
@@ -76,6 +78,10 @@ export default {
   [SET_FILTER] (state, filter) {
     state.filter = filter
   },
+  [CRAWL_LISTS] (state, lists) {
+    console.log('CRAWL_LISTS: ' + lists)
+    state.crawlList = lists
+  },
   [FETCH_BOARD_LIST] (state, boards) {
     console.log('FETCH_BOARD_LIST: ' + boards)
     state.boards = boards
@@ -106,5 +112,8 @@ export default {
   },
   [DESTROY_MY_INFO] (state) {
     state.myinfo = null
+  },
+  [FETCH_TABLE_DATA] (state, tableData) {
+    state.tableData = tableData
   }
 }

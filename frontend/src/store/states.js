@@ -9,5 +9,7 @@ export default {
   board: null,
   // Access Token
   accessToken: '',
-  myinfo: null
+  myinfo: null,
+  // Crawl Lists
+  crawlLists: []
 }

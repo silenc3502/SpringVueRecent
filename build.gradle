@@ -43,6 +43,8 @@ dependencies {
     compile('org.springframework:spring-orm')
     compile('mysql:mysql-connector-java')
     compile('commons-io:commons-io:2.6')
+    compile('org.jsoup:jsoup:1.13.1')
+    compile('com.googlecode.json-simple:json-simple:1.1.1')
     // compile('org.json:json:20190722')
     compile('com.h2database:h2')
     compileOnly('org.projectlombok:lombok')
